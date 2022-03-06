@@ -53,7 +53,6 @@ public class Customer {
                 numAccounts--;
             }
         }
-        System.out.println("Account number does not exist!");
     }
 
     public int getNumAccounts(){
@@ -65,7 +64,9 @@ public class Customer {
         StringBuffer result = new StringBuffer();
         result.append(firstName + ' ' + lastName + " accounts:\n");
         for (int i = 0; i < numAccounts; ++i){
-            result.append("\t" + accounts[i].toString() + "\n");
+            if (this.accounts[i] != null){
+                result.append("\t" + accounts[i].toString() + "\n");
+            }
         }
         return result.toString();
     }
