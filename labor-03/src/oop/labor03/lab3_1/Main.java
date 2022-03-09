@@ -5,8 +5,8 @@ public class Main {
         Customer customer1 = new Customer("John", "BLACK");
         //System.out.println(customer1.toString());
         System.out.println(customer1);
-        BankAccount account1 = new BankAccount("OTP00001");
-        customer1.setAccount(account1);
+
+        customer1.setAccount(new BankAccount("OTP00001"));
         System.out.println(customer1);
         customer1.getAccount().deposit(1000);
         System.out.println(customer1);
@@ -14,8 +14,8 @@ public class Main {
         System.out.println(customer1);
 
         Customer customer2 = new Customer("Mary", "WHITE");
-        BankAccount account2 = new BankAccount("OTP00002");
-        customer2.setAccount(account2);
+
+        customer2.setAccount(new BankAccount("OTP00002"));
         System.out.println(customer2);
         customer2.getAccount().deposit(300);
         //System.out.println(customer2);
@@ -24,7 +24,8 @@ public class Main {
         customer2.closeAccount();
         System.out.println(customer2);
         customer2.setLastName("BLACK");
-        customer2.setAccount(account1);
+        customer2.setAccount(customer1.getAccount());
+        customer2.getAccount().withdraw(50);
         System.out.println(customer1);
         System.out.println(customer2);
 

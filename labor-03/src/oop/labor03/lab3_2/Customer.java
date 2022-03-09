@@ -49,7 +49,7 @@ public class Customer {
     public void closeAccount(String accountNumber){
         for (int i = 0; i < numAccounts; ++i){
             if (this.accounts[i].getAccountNumber().equals(accountNumber)){
-                this.accounts[i] = null;
+                this.accounts[i] = this.accounts[numAccounts-1];
                 numAccounts--;
             }
         }

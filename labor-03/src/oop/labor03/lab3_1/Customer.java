@@ -1,7 +1,7 @@
 package oop.labor03.lab3_1;
 
 public class Customer {
-    private String firstName;
+    private final String firstName;
     private String lastName;
     private BankAccount account;
 
