@@ -12,7 +12,7 @@ public class Training {
     private final MyDate startDate;
     private final MyDate endDate;
     private final double pricePerStudent;
-    private ArrayList<Student> enrolledStudents;
+    private ArrayList<Student> enrolledStudents = new ArrayList<>();
 
     public Training(Course course, MyDate startDate, MyDate endDate, double pricePerStudent) {
         this.course = course;
@@ -52,8 +52,10 @@ public class Training {
         String dateStart = startDate.getYear() + "." + startDate.getMonth() + "." + startDate.getDay();
         String dateEnd = endDate.getYear() + "." + endDate.getMonth() + "." + endDate.getDay();
         String fileName = String.format("%s_%s_%s", course.getName(), dateStart, dateEnd);
-        try(PrintStream output = new PrintStream(){
-
+        try(PrintStream output = new PrintStream(fileName)){
+            for (Student s:enrolledStudents){
+                output.println(s);
+            }
         }
         catch (FileNotFoundException e){
             e.printStackTrace();
@@ -62,12 +64,16 @@ public class Training {
 
     @Override
     public String toString() {
-        return "Training{" +
+        StringBuffer result = new StringBuffer();
+        result.append("Training{" +
                 "\n\tcourse=" + course +
                 "\n\tstartDate=" + startDate +
-                "\n\tendDate=" + endDate +
-                "\n\t\tenrolledStudents=" + enrolledStudents +
-                '}';
+                "\n\tendDate=" + endDate);
+        for (Student student:enrolledStudents){
+            result.append("\n\t\t" + student);
+        }
+        result.append("\n}\n");
+        return result.toString();
     }
 
     public void unEnroll(String ID){

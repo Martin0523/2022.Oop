@@ -1,11 +1,14 @@
 package oop.labor05;
 
+import oop.labor02.date.MyDate;
 import oop.labor05.models.Course;
 import oop.labor05.models.Student;
+import oop.labor05.models.Training;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -18,6 +21,25 @@ public class Main {
         ArrayList<Student> students = readStudents("students.csv");
         for (Student student:students){
             System.out.println(student);
+        }
+
+        MyDate startDate = new MyDate(2022, 3, 21);
+        MyDate endDate = new MyDate(2022, 3, 25);
+        Random rand = new Random();
+
+        ArrayList<Training> trainings = new ArrayList<>();
+        for (Course c:courses){
+            trainings.add(new Training(c, startDate, endDate, rand.nextInt(1000)+1000));
+        }
+        for (Training t:trainings){
+            int i = 0;
+            while (i < 10){
+                if (t.enroll(students.get(rand.nextInt(students.size())))){
+                    i++;
+                }
+            }
+            System.out.println(t);
+            t.printToFile();
         }
     }
 
