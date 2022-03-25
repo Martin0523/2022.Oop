@@ -15,6 +15,10 @@ public class Bank {
     }
 
     public Customer getCustomer(int index){
+        if (index > customers.size()-1){
+            System.out.println("Customer does not exist!");
+            return null;
+        }
         return customers.get(index);
     }
 
@@ -42,7 +46,7 @@ public class Bank {
         printStream.println("ID, Firstname, Last name, Number of bank accounts");
         for (Customer customer :customers){
             printStream.println(customer.getId()+ ", " + customer.getFirstName() + ", " + customer.getLastName()
-            + ", " + customer.getNumAccounts());;
+            + ", " + customer.getNumAccounts());
         }
         printStream.close();
     }

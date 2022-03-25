@@ -29,7 +29,7 @@ public class Matrix {
         Random rand = new Random();
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                data[i][j] = rand.nextInt();
+                data[i][j] = rand.nextInt(100);
             }
         }
     }
@@ -45,17 +45,43 @@ public class Matrix {
     public void printMatrix(){
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                System.out.printf("%f2", data[i][j]);
+                System.out.printf("%.2f ", data[i][j]);
             }
             System.out.println();
         }
     }
 
-    public Matrix add(Matrix m1, Matrix m2){
+    public static Matrix add(Matrix m1, Matrix m2){
+        if (m1.rows != m2.rows || m1.columns != m2.columns){
+            System.out.println("The two matrixes can not be added together!");
+            return null;
+        }
         Matrix matrix = new Matrix(m1.rows, m1.columns);
         for (int i = 0; i < m1.rows; i++) {
             for (int j = 0; j < m1.columns; j++) {
                 matrix.data[i][j] = m1.data[i][j] + m2.data[i][j];
+            }
+        }
+        return matrix;
+    }
+
+    public static Matrix multiply(Matrix m1, Matrix m2){
+        Matrix matrix = new Matrix(m1.rows, m2.columns);
+        for (int i = 0; i < m1.rows; i++) {
+            for (int j = 0; j < m2.columns; j++) {
+                for (int k = 0; k < m2.rows; k++) {
+                    matrix.data[i][j] += m1.data[i][k] * m2.data[k][j];
+                }
+            }
+        }
+        return matrix;
+    }
+
+    public static Matrix transpose(Matrix m){
+        Matrix matrix = new Matrix(m.columns, m.rows);
+        for (int i = 0; i < m.columns; i++) {
+            for (int j = 0; j < m.rows; j++) {
+                matrix.data[i][j] = m.data[j][i];
             }
         }
         return matrix;
