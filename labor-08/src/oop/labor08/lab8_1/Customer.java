@@ -72,9 +72,12 @@ public class Customer {
                 "\t" + accounts;
     }
 
-//    public ArrayList<String> getAccountNumbers(){
-//        ArrayList<String> accountNumbers = new ArrayList<>();
-//
-//    }
+    public ArrayList<String> getAccountNumbers(){
+        ArrayList<String> accountNumbers = new ArrayList<>();
+        for (BankAccount account:accounts){
+            accountNumbers.add(account.getAccountNumber());
+        }
+        return accountNumbers;
+    }
 }
 
