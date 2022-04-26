@@ -1,8 +1,4 @@
-package oop.labor09;
-
-import oop.labor09.Queue.ArrayListQueue;
-import oop.labor09.Queue.CircularQueue;
-import oop.labor09.Queue.IQueue;
+package oop.labor09.Queue;
 
 import java.util.Random;
 
@@ -34,5 +30,22 @@ public class Main {
             q2.enQueue( i );
         }
         System.out.println( q1.equals( q2 ));
+
+        IQueue q3 = new CircularQueue(5);
+        IQueue q4 = new CircularQueue(5);
+        for( int i=1; i<6; ++i){
+            q3.enQueue( i );
+        }
+        q4.enQueue( 1 );
+        q4.enQueue( 1 );
+        q4.deQueue();
+        q4.deQueue();
+        for( int i=1; i<6; ++i){
+            q4.enQueue( i);
+        }
+        q4.enQueue( 4 );
+        q4.enQueue( 5 );
+        System.out.println( q3.equals( q4 ));
+
     }
 }
