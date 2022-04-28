@@ -23,7 +23,7 @@ public class Manager extends Employee{
     public String toString() {
         return "Manager{" +
                 "ID=" + this.getID() +
-                ", fristName='" + this.getFristName() + '\'' +
+                ", fristName='" + this.getFirstName() + '\'' +
                 ", lastName='" + this.getLastName() + '\'' +
                 ", salary=" + this.getSalary() +
                 ", birthDate=" + this.getBirthDate() +

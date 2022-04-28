@@ -2,18 +2,16 @@ package oop.labor10.lab10_2;
 
 import oop.labor10.lab10_1.MyDate;
 
-import java.util.Objects;
-
 public class Employee implements Comparable<Employee>{
     private final int ID;
-    private final String fristName;
+    private final String firstName;
     private String lastName;
     private double salary;
     private final MyDate birthDate;
     private static int counter = 0;
 
-    public Employee(String fristName, String lastName, double salary, MyDate birthDate) {
-        this.fristName = fristName;
+    public Employee(String firstName, String lastName, double salary, MyDate birthDate) {
+        this.firstName = firstName;
         this.lastName = lastName;
         this.salary = salary;
         this.birthDate = birthDate;
@@ -24,8 +22,8 @@ public class Employee implements Comparable<Employee>{
         return ID;
     }
 
-    public String getFristName() {
-        return fristName;
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getLastName() {
@@ -52,7 +50,7 @@ public class Employee implements Comparable<Employee>{
     public String toString() {
         return "Employee{" +
                 "ID=" + ID +
-                ", fristName='" + fristName + '\'' +
+                ", fristName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", salary=" + salary +
                 ", birthDate=" + birthDate +
@@ -69,6 +67,6 @@ public class Employee implements Comparable<Employee>{
 
     @Override
     public int compareTo(Employee o) {
-        return (this.fristName + " " + this.lastName).compareTo(o.fristName + " " + o.lastName);
+        return (this.firstName + " " + this.lastName).compareTo(o.firstName + " " + o.lastName);
     }
 }

@@ -47,11 +47,11 @@ public class Company{
                 int birthMonth = Integer.parseInt(items[4].trim());
                 int birthDay = Integer.parseInt(items[5].trim());
                 MyDate birtDate = new MyDate(birtYear, birthMonth, birthDay);
-                if (!items[6].isEmpty()){
+                if (items.length == 7){
                     String department = items[6].trim();
-                    employees.add(new Manager(firstName, lastName, salary, birtDate, department));
+                    hire(new Manager(firstName, lastName, salary, birtDate, department));
                 } else {
-                    employees.add(new Employee(firstName, lastName, salary, birtDate));
+                    hire(new Employee(firstName, lastName, salary, birtDate));
                 }
             }
         } catch (FileNotFoundException e) {
