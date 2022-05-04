@@ -41,6 +41,7 @@ public class Storage {
                 if (line.isEmpty()) continue;
                 String[] items = line.split(" ");
                 int ID = Integer.parseInt(items[0].trim());
+                //van beépített binary search
                 int index = binarySearch(products, ID);
                 if (index != -1){
                     products.get(index).increaseAmount(Integer.parseInt(items[1].trim()));

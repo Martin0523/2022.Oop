@@ -60,6 +60,8 @@ public class Company{
     }
 
     public void fire(int index){
+
+        //vigyázat ez nem index alapján kell történjen, hanem id!
         employees.remove(index);
     }
 
