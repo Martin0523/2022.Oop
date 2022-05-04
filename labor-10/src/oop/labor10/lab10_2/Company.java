@@ -59,10 +59,15 @@ public class Company{
         }
     }
 
-    public void fire(int index){
+    public void fire(int emplID){
 
-        //vigyázat ez nem index alapján kell történjen, hanem id!
-        employees.remove(index);
+        //vigyázat ez nem index alapján kell történjen, hanem id! - javitva
+//        employees.remove(index);
+        for (Employee e:employees){
+            if (e.getID() == emplID){
+                employees.remove(e);
+            }
+        }
     }
 
     void printAll(PrintStream stream){
