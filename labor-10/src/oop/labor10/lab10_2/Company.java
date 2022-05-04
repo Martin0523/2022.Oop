@@ -63,11 +63,7 @@ public class Company{
 
         //vigyázat ez nem index alapján kell történjen, hanem id! - javitva
 //        employees.remove(index);
-        for (Employee e:employees){
-            if (e.getID() == emplID){
-                employees.remove(e);
-            }
-        }
+        employees.removeIf(e -> e.getID() == emplID);
     }
 
     void printAll(PrintStream stream){
