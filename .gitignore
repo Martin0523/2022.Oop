@@ -5,3 +5,11 @@
 
 **/*.class
 **/*.iml
+/bank_customers.csv
+/bible.txt
+/labor-05/DPJava_2022.3.21_2022.3.25
+/labor-05/JavaSE8_2022.3.21_2022.3.25
+/labor-05/JavaSE17_2022.3.21_2022.3.25
+/labor-05/JavaSpring5_2022.3.21_2022.3.25
+/labor-05/JavaSpringBoot2_2022.3.21_2022.3.25
+/test.txt
