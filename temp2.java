@@ -19,11 +19,7 @@ public interface FileUtil {
             try (OutputStream out = new FileOutputStream(outputFileName)){
                 int ch;
                 while ((ch = in.read()) != -1) {
-                    if (ch == 0){
-                        out.write(255);
-                    } else {
-                        out.write((ch - 1) % 256);
-                    }
+                    out.write((ch -1) % 256);
                 }
             }
         }
