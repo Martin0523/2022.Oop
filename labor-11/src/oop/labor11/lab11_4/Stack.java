@@ -2,11 +2,12 @@ package oop.labor11.lab11_4;
 
 import java.util.ArrayList;
 
-public class Stack{
+public class Stack extends StackException{
     private ArrayList<Object> items = new ArrayList<>();
     private final int capacity;
 
     public Stack(int capacity){
+        super("Stack exception");
         this.capacity = capacity;
     }
 

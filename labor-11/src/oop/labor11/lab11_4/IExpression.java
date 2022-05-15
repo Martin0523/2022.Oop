@@ -6,27 +6,47 @@ public interface IExpression {
     }
 
     public static double evaluate( String postfixExpression) throws ExpressionException, StackException {
-        Stack stack = new Stack(10);
         String[] items = postfixExpression.split(" ");
+        Stack stack = new Stack(items.length);
         for (String item:items){
-            try {
-                stack.push(Double.parseDouble(item.trim()));
-            }
-            catch (NumberFormatException e){
-            }
             if (isOperator(item.trim())){
-                double a = (Double)stack.top();
-                stack.pop();
-                double b = (Double)stack.top();
-                stack.pop();
-                switch (item.trim()){
-                    case "+": stack.push(a+b);
-                    case "-": stack.push(a-b);
-                    case "*": stack.push(a*b);
-                    case "/": stack.push(a/b);
+                try{
+                    double a = (double)stack.top();
+                    stack.pop();
+                    double b = (double)stack.top();
+                    stack.pop();
+//                    switch (item.trim()){
+//                        case "+": stack.push(a+b);
+//                        case "-": stack.push(a-b);
+//                        case "*": stack.push(a*b);
+//                        case "/": stack.push(a/b);
+//                    }
+                    if (item.trim().equals("+")){
+                        stack.push(a+b);
+                    }
+                    if (item.trim().equals("-")){
+                        stack.push(a-b);
+                    }
+                    if (item.trim().equals("*")){
+                        stack.push(a*b);
+                    }
+                    if (item.trim().equals("/")){
+                        stack.push(a/b);
+                    }
+                }
+                catch (StackException e){
+                    throw new ExpressionException("Wrong postfix expression");
+                }
+            }
+            else {
+                try {
+                    stack.push(Double.parseDouble(item.trim()));
+                }
+                catch (NumberFormatException e){
+                    throw new ExpressionException("Wrong operand: " + item);
                 }
             }
         }
-        return (Double)stack.top();
+        return (double)stack.top();
     }
 }

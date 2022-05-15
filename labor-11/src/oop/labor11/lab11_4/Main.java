@@ -7,16 +7,15 @@ public class Main {
                 "1 2 + +",
                 "1 a +",
                 "1 2,3 *",
-                "1 3 /" };
+                "1 3 /",
+                "-1 2 3 * +"};
         for( String expr: expressions ) {
             try {
                 System.out.println("Eval(" + expr + "): " +
                         IExpression.evaluate(expr));
-            } catch (ExpressionException e) {
+            } catch (ExpressionException | StackException e) {
                 System.out.println("Wrong expression: " + expr);
                 System.out.println("\t" + e.getMessage());
-            } catch (StackException e) {
-                System.out.println(e.getMessage());
             }
         }
     }
