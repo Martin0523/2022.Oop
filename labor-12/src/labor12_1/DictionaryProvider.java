@@ -1,4 +1,4 @@
-package Dictionary;
+package labor12_1;
 
 public class DictionaryProvider {
     public static IDictionary createDictionary(DictionaryType type){

@@ -1,23 +1,24 @@
-package Dictionary;
+package labor12_1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
-public class ArrayListDictionary implements IDictionary{
+public class HashSetDictionary implements IDictionary{
 
-    private ArrayList<String> words = new ArrayList<>();
-    private static ArrayListDictionary instance;
+    private HashSet<String> words = new HashSet<>();
+    private static HashSetDictionary instance;
 
-    private ArrayListDictionary(){
+    public HashSetDictionary() {
         try(Scanner scanner = new Scanner(new File("dict.txt"))){
             while (scanner.hasNextLine()){
                 String line = scanner.nextLine();
                 if (line.isEmpty()) continue;
                 words.add(line.trim());
             }
-        } catch (FileNotFoundException e){
+        }
+        catch (FileNotFoundException e){
             e.printStackTrace();
         }
     }
@@ -29,12 +30,7 @@ public class ArrayListDictionary implements IDictionary{
 
     @Override
     public boolean find(String word) {
-        for (String w:words){
-            if (w.equalsIgnoreCase(word)){
-                return true;
-            }
-        }
-        return false;
+        return words.contains(word);
     }
 
     @Override
@@ -44,7 +40,7 @@ public class ArrayListDictionary implements IDictionary{
 
     public static IDictionary newInstance(){
         if (instance == null){
-            instance = new ArrayListDictionary();
+            instance = new HashSetDictionary();
         }
         return instance;
     }

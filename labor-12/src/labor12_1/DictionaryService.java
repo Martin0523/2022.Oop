@@ -1,11 +1,11 @@
-package Dictionary;
+package labor12_1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static Dictionary.DictionaryProvider.createDictionary;
+import static labor12_1.DictionaryProvider.createDictionary;
 
 public class DictionaryService {
     private IDictionary dictionary;

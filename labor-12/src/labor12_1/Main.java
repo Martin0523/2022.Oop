@@ -1,7 +1,4 @@
-package Dictionary;
-
-import java.util.ArrayList;
-import java.util.Scanner;
+package labor12_1;
 
 public class Main {
     public static void main(String[] args) {

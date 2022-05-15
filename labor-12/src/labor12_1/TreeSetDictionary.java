@@ -1,4 +1,4 @@
-package Dictionary;
+package labor12_1;
 
 import java.io.File;
 import java.io.FileNotFoundException;

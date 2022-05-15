@@ -1,4 +1,4 @@
-package Dictionary;
+package labor12_1;
 
 public interface IDictionary {
 
